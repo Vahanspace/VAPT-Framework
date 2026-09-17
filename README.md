@@ -64,6 +64,8 @@ workbook.
 | `config-audit` | active | target | Security headers, cookie flags, tech disclosure |
 | `dast` | active | target+authz | HTTP methods, verbose errors, reflected-input surface (non-destructive) |
 | `api` | active | target+authz+creds | Auth enforcement + BOLA/BFLA denial checks (OWASP API1/API2/API5) |
+| `nmap` `nikto` `zap` | active (opt-in) | target+authz+tool | Wrappers for the engagement tools; degrade to a note if the binary is absent |
+| `sqlmap` | active, **destructive-gated** | target+destructive authz | SQLi detection on explicitly listed URLs only |
 
 **Passive** suites run offline on source. **Active** suites run only with a valid
 authorization and an in-scope target (see guardrails).

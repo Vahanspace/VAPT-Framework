@@ -73,8 +73,15 @@ options:
   api_tests:
     # - { name: "BOLA userB reads userA vehicle", check: bola, method: GET,
     #     url: "${TARGET}/api/v1/vehicles/VICTIM_VEHICLE_ID", attacker_identity: userB, test_id: VAPT-021 }
+  # Explicit URLs to test with SQLMap (only used if the 'sqlmap' suite is enabled AND
+  # allow_destructive is true). Keep this tightly scoped — no blanket fuzzing.
+  sqlmap_urls: []
+  #  - "${TARGET}/api/v1/vehicles?query=1"
 
-suites: [secrets, sast, sca, config-audit, dast, api]
+# Core suites + optional external-tool wrappers. nmap/nikto/zap run only if the tool is on
+# PATH (else they emit an informational 'not installed' note). sqlmap is destructive-gated
+# and is omitted here by default — add it only with allow_destructive: true.
+suites: [secrets, sast, sca, config-audit, dast, api, nmap, nikto, zap]
 
 evidence_dir: "evidence"
 report_dir: "reports"

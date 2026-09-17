@@ -58,6 +58,21 @@ If the API changes, regenerate the inventory/checks:
   `api_inventory.load_from_openapi`.
 - **From source:** re-run the extractor (`api_inventory.extract_from_source`) against `backend/app/api/routes`.
 
+## Optional external-tool wrappers
+The tools named in the engagement document are wired in as opt-in suites and used only if the
+binary is on PATH (otherwise each records an informational "not installed" note — never a
+false pass):
+
+| Suite | Tool | Type | Maps to |
+|---|---|---|---|
+| `nmap` | Nmap | active, non-destructive | Infrastructure (open ports / services) |
+| `nikto` | Nikto | active, non-destructive | Web Security / Config |
+| `zap` | OWASP ZAP (`zap-baseline.py`) | active, non-destructive | Web Security / Config |
+| `sqlmap` | SQLMap | active, **destructive-gated** | Data Input Validation (SQLi) |
+
+`sqlmap` runs only against URLs listed in `options.sqlmap_urls` **and** only when
+`allow_destructive: true`. Burp Suite Pro/Enterprise and Nessus remain analyst-driven (licensed/GUI).
+
 ## Safety notes
 - Only **GET/HEAD** checks run by default (non-destructive). Mutating verbs stay off unless
   `allow_destructive: true` — keep it false.

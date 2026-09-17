@@ -99,9 +99,12 @@ def build_scanners(suites: list[str]):
     from ..scanners.config_audit import ConfigAuditScanner
     from ..scanners.dast import DastScanner
     from ..scanners.api import ApiScanner
+    from ..scanners.external import NmapScanner, NiktoScanner, SqlmapScanner, ZapScanner
 
     registry = {
         "secrets": SecretScanner, "sast": SastScanner, "sca": ScaScanner,
         "config-audit": ConfigAuditScanner, "dast": DastScanner, "api": ApiScanner,
+        # Optional external-tool wrappers (opt-in; degrade gracefully if tool absent).
+        "nmap": NmapScanner, "nikto": NiktoScanner, "sqlmap": SqlmapScanner, "zap": ZapScanner,
     }
     return [registry[s]() for s in suites if s in registry]
