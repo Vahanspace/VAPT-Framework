@@ -69,6 +69,13 @@ def test_destructive_blocked_if_active_blocked():
     assert a.destructive_allowed(TODAY) is False
 
 
+def test_placeholder_date_does_not_crash_and_is_invalid():
+    a = Authorization.from_dict({"authorized_by": "Owner", "allow_active_testing": True,
+                                 "valid_from": "YYYY-MM-DD", "valid_until": "YYYY-MM-DD"})
+    assert a.valid_from is None and a.valid_until is None
+    assert a.is_valid(TODAY) is True  # no bounds => valid window, but signer is real
+
+
 def test_active_blocked_when_unsigned_even_if_flag_true():
     a = auth(authorized_by="", allow_active_testing=True)
     with pytest.raises(AuthorizationError):

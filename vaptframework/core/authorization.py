@@ -34,7 +34,12 @@ def _parse_date(value) -> Optional[date]:
         return value.date()
     if isinstance(value, date):
         return value
-    return datetime.fromisoformat(str(value)).date()
+    try:
+        return datetime.fromisoformat(str(value)).date()
+    except ValueError:
+        # A placeholder/garbage date (e.g. "YYYY-MM-DD") is treated as "no valid date"
+        # rather than crashing. Combined with the unsigned check this fails closed.
+        return None
 
 
 @dataclass

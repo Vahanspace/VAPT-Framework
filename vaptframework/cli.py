@@ -15,6 +15,7 @@ import sys
 
 from .core.config import build_scanners, load_run_config
 from .core.engine import Engine
+from .core.preflight import preflight
 from .reporting.report import ReportMeta, build_html, build_markdown
 from .reporting.xlsx_writer import write_findings
 from .testplan.loader import group_by_module, load_test_cases
@@ -73,6 +74,13 @@ def cmd_run(args):
     return 0
 
 
+def cmd_preflight(args):
+    rc = load_run_config(args.config)
+    rep = preflight(rc, build_scanners(rc.suites))
+    print(rep.render())
+    return 0 if rep.go else 2
+
+
 def cmd_scope_check(args):
     rc = load_run_config(args.config)
     ok = rc.context.scope.is_in_scope(args.url)
@@ -98,6 +106,10 @@ def build_parser():
                    help="path to the test plan xlsx (for coverage + write-back)")
     r.add_argument("--write-plan", action="store_true", help="write findings back into the original plan file")
     r.set_defaults(func=cmd_run)
+
+    pf = sub.add_parser("preflight", help="readiness go/no-go check before active testing")
+    pf.add_argument("--config", required=True)
+    pf.set_defaults(func=cmd_preflight)
 
     s = sub.add_parser("scope-check", help="check whether a URL is in scope")
     s.add_argument("--config", required=True)

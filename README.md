@@ -34,12 +34,23 @@ cp config/example.yaml config/myapp.local.yaml
 # 2. Static analysis only (safe, no target needed) — point source_roots at your code
 python -m vaptframework.cli run --config config/myapp.local.yaml
 
-# 3. Check whether a URL is in scope
+# 3. Readiness go/no-go before any active testing
+python -m vaptframework.cli preflight --config config/myapp.local.yaml
+
+# 4. Check whether a URL is in scope
 python -m vaptframework.cli scope-check --config config/myapp.local.yaml --url https://staging.example.com/
 
-# 4. Emergency stop (engage kill switch)
+# 5. Emergency stop (engage kill switch)
 python -m vaptframework.cli stop --config config/myapp.local.yaml
 ```
+
+## Dynamic round (staging)
+The active DAST + API round is turnkey. For VahanSpace, the API surface is already extracted
+(`testplan/vahanspace_api_inventory.*` — 415 endpoints) and **224 read-only checks are
+generated** (`testplan/vahanspace_api_tests.json`: unauth/API2, BFLA/API5, BOLA/API1 templates).
+Provide a staging URL + per-role tokens + a signed RoE, run `preflight` until it prints **GO**,
+then `run`. Full runbook: [`docs/STAGING_ROUND.md`](docs/STAGING_ROUND.md); RoE template:
+[`docs/RULES_OF_ENGAGEMENT_VahanSpace.md`](docs/RULES_OF_ENGAGEMENT_VahanSpace.md).
 Reports are written to `reports/` as `VAPT_Report.md`, `VAPT_Report.html`,
 `findings.json`, and `run_summary.json`, and findings are written back into the test-plan
 workbook.

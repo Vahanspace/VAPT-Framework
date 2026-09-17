@@ -52,6 +52,27 @@ def load_run_config(path: str) -> RunConfig:
     source_roots = data.get("source_roots") or scope.source_roots or []
     source_roots = [os.path.abspath(os.path.expanduser(p)) for p in source_roots]
 
+    # options.api_tests may be supplemented from an external JSON file (generated inventory)
+    options = dict(data.get("options", {}))
+    tests_file = options.pop("api_tests_file", None)
+    if tests_file:
+        tf = os.path.join(os.path.dirname(os.path.abspath(path)), tests_file) \
+            if not os.path.isabs(tests_file) else tests_file
+        if os.path.exists(tf):
+            import json as _json
+            with open(tf, "r", encoding="utf-8") as fh:
+                loaded = _json.load(fh)
+            existing = options.get("api_tests") or []
+            options["api_tests"] = list(existing) + list(loaded)
+
+    # Substitute the ${TARGET} placeholder in api_tests urls with the first configured target.
+    targets = data.get("targets", [])
+    if targets and options.get("api_tests"):
+        base = str(targets[0]).rstrip("/")
+        for spec in options["api_tests"]:
+            if isinstance(spec.get("url"), str):
+                spec["url"] = spec["url"].replace("${TARGET}", base)
+
     ctx = ScanContext(
         scope=guard,
         authorization=authz,
@@ -59,7 +80,7 @@ def load_run_config(path: str) -> RunConfig:
         targets=data.get("targets", []),
         source_roots=source_roots,
         evidence_dir=evidence_dir,
-        options=data.get("options", {}),
+        options=options,
         credentials=data.get("credentials", {}),
     )
     return RunConfig(

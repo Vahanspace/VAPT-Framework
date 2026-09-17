@@ -1,0 +1,3640 @@
+{
+  "summary": {
+    "total": 415,
+    "by_auth": {
+      "public": 79,
+      "admin": 146,
+      "authenticated": 118,
+      "optional": 12,
+      "brand_owner": 2,
+      "staff": 19,
+      "owner": 21,
+      "provider": 18
+    },
+    "by_method": {
+      "GET": 192,
+      "POST": 144,
+      "PATCH": 26,
+      "DELETE": 32,
+      "PUT": 21
+    }
+  },
+  "endpoints": [
+    {
+      "method": "GET",
+      "path": "/api/v1/accessories",
+      "auth": "public",
+      "path_params": [],
+      "source": "accessories.py:list_accessories",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/stats",
+      "auth": "admin",
+      "path_params": [],
+      "source": "admin.py:platform_stats",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/dealer-listings",
+      "auth": "admin",
+      "path_params": [],
+      "source": "admin.py:dealer_listings",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/revenue",
+      "auth": "admin",
+      "path_params": [],
+      "source": "admin.py:revenue_summary",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/leads-by-dealer",
+      "auth": "admin",
+      "path_params": [],
+      "source": "admin.py:leads_by_dealer",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/leads-by-provider",
+      "auth": "admin",
+      "path_params": [],
+      "source": "admin.py:leads_by_provider",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/monthly-activity",
+      "auth": "admin",
+      "path_params": [],
+      "source": "admin.py:monthly_activity",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/monthly-activity/records",
+      "auth": "admin",
+      "path_params": [],
+      "source": "admin.py:monthly_activity_records",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/listing-payments",
+      "auth": "admin",
+      "path_params": [],
+      "source": "admin.py:listing_payments",
+      "tags": ""
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/admin/listing-payments/{order_id}/mark-paid",
+      "auth": "admin",
+      "path_params": [
+        "order_id"
+      ],
+      "source": "admin.py:mark_listing_paid",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/stale-listings",
+      "auth": "admin",
+      "path_params": [],
+      "source": "admin.py:stale_listings",
+      "tags": ""
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/admin/stale-listings/{vehicle_id}/delist",
+      "auth": "admin",
+      "path_params": [
+        "vehicle_id"
+      ],
+      "source": "admin.py:delist_stale_listing",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/profile-changes",
+      "auth": "admin",
+      "path_params": [],
+      "source": "admin.py:list_profile_changes",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/approvals/pending-count",
+      "auth": "admin",
+      "path_params": [],
+      "source": "admin.py:approvals_pending_count",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/service-types",
+      "auth": "admin",
+      "path_params": [],
+      "source": "admin.py:admin_list_service_types",
+      "tags": ""
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/admin/service-types",
+      "auth": "admin",
+      "path_params": [],
+      "source": "admin.py:admin_create_service_type",
+      "tags": ""
+    },
+    {
+      "method": "PATCH",
+      "path": "/api/v1/admin/service-types/{type_id}",
+      "auth": "admin",
+      "path_params": [
+        "type_id"
+      ],
+      "source": "admin.py:admin_update_service_type",
+      "tags": ""
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/v1/admin/service-types/{type_id}",
+      "auth": "admin",
+      "path_params": [
+        "type_id"
+      ],
+      "source": "admin.py:admin_delete_service_type",
+      "tags": ""
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/admin/service-providers",
+      "auth": "admin",
+      "path_params": [],
+      "source": "admin.py:admin_create_service_provider",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/contact-requests",
+      "auth": "admin",
+      "path_params": [],
+      "source": "admin.py:list_contact_requests",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/contact-requests/pending-count",
+      "auth": "admin",
+      "path_params": [],
+      "source": "admin.py:contact_requests_pending_count",
+      "tags": ""
+    },
+    {
+      "method": "PATCH",
+      "path": "/api/v1/admin/contact-requests/{cid}",
+      "auth": "admin",
+      "path_params": [
+        "cid"
+      ],
+      "source": "admin.py:set_contact_handled",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/contact-requests/email-config",
+      "auth": "admin",
+      "path_params": [],
+      "source": "admin.py:contact_email_config",
+      "tags": ""
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/admin/contact-requests/{cid}/reply",
+      "auth": "admin",
+      "path_params": [
+        "cid"
+      ],
+      "source": "admin.py:reply_contact",
+      "tags": ""
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/admin/contact-requests/{cid}/whatsapp",
+      "auth": "admin",
+      "path_params": [
+        "cid"
+      ],
+      "source": "admin.py:whatsapp_contact",
+      "tags": ""
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/admin/profile-changes/{req_id}/approve",
+      "auth": "admin",
+      "path_params": [
+        "req_id"
+      ],
+      "source": "admin.py:approve_profile_change",
+      "tags": ""
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/admin/profile-changes/{req_id}/reject",
+      "auth": "admin",
+      "path_params": [
+        "req_id"
+      ],
+      "source": "admin.py:reject_profile_change",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/users",
+      "auth": "admin",
+      "path_params": [],
+      "source": "admin.py:list_users",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/users/{dealer_id}/employees",
+      "auth": "admin",
+      "path_params": [
+        "dealer_id"
+      ],
+      "source": "admin.py:list_dealer_employees",
+      "tags": ""
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/admin/users/{user_id}/send-reminder",
+      "auth": "admin",
+      "path_params": [
+        "user_id"
+      ],
+      "source": "admin.py:send_user_renewal_reminder",
+      "tags": ""
+    },
+    {
+      "method": "PATCH",
+      "path": "/api/v1/admin/service-providers/{user_id}",
+      "auth": "admin",
+      "path_params": [
+        "user_id"
+      ],
+      "source": "admin.py:admin_update_service_provider",
+      "tags": ""
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/admin/users/{user_id}/verify-gst",
+      "auth": "admin",
+      "path_params": [
+        "user_id"
+      ],
+      "source": "admin.py:verify_user_gst",
+      "tags": ""
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/admin/subscription/send-reminders",
+      "auth": "admin",
+      "path_params": [],
+      "source": "admin.py:send_subscription_reminders",
+      "tags": ""
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/admin/gst/send-reminders",
+      "auth": "admin",
+      "path_params": [],
+      "source": "admin.py:send_gst_reminders_endpoint",
+      "tags": ""
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/admin/agreements/send-reminders",
+      "auth": "admin",
+      "path_params": [],
+      "source": "admin.py:send_agreement_reminders_endpoint",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/reminders/report",
+      "auth": "admin",
+      "path_params": [],
+      "source": "admin.py:reminders_report",
+      "tags": ""
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/admin/reminders/send-one",
+      "auth": "admin",
+      "path_params": [],
+      "source": "admin.py:send_reminder_one",
+      "tags": ""
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/admin/reminders/send-bulk",
+      "auth": "admin",
+      "path_params": [],
+      "source": "admin.py:send_reminder_bulk",
+      "tags": ""
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/admin/listings/run-nudges",
+      "auth": "admin",
+      "path_params": [],
+      "source": "admin.py:run_listing_nudges_endpoint",
+      "tags": ""
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/admin/users/{user_id}/subscription",
+      "auth": "admin",
+      "path_params": [
+        "user_id"
+      ],
+      "source": "admin.py:assign_subscription",
+      "tags": ""
+    },
+    {
+      "method": "PATCH",
+      "path": "/api/v1/admin/users/{user_id}/status",
+      "auth": "admin",
+      "path_params": [
+        "user_id"
+      ],
+      "source": "admin.py:set_user_status",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/wishlist-demand",
+      "auth": "admin",
+      "path_params": [],
+      "source": "admin.py:wishlist_demand",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/geographic-activity",
+      "auth": "admin",
+      "path_params": [],
+      "source": "admin.py:geographic_activity",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/moderation-config",
+      "auth": "admin",
+      "path_params": [],
+      "source": "admin.py:get_moderation_config",
+      "tags": ""
+    },
+    {
+      "method": "PUT",
+      "path": "/api/v1/admin/moderation-config",
+      "auth": "admin",
+      "path_params": [],
+      "source": "admin.py:save_moderation_config",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/boost-bury-config",
+      "auth": "admin",
+      "path_params": [],
+      "source": "admin.py:get_boost_bury_config",
+      "tags": ""
+    },
+    {
+      "method": "PUT",
+      "path": "/api/v1/admin/boost-bury-config",
+      "auth": "admin",
+      "path_params": [],
+      "source": "admin.py:save_boost_bury_config",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/sms-config",
+      "auth": "admin",
+      "path_params": [],
+      "source": "admin.py:get_sms_config",
+      "tags": ""
+    },
+    {
+      "method": "PUT",
+      "path": "/api/v1/admin/sms-config",
+      "auth": "admin",
+      "path_params": [],
+      "source": "admin.py:save_sms_config",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/sms-config/reveal",
+      "auth": "admin",
+      "path_params": [],
+      "source": "admin.py:reveal_sms_config",
+      "tags": ""
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/admin/sms-config/test",
+      "auth": "admin",
+      "path_params": [],
+      "source": "admin.py:test_sms_config",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/scheduled-jobs/vehicle-cleanup",
+      "auth": "admin",
+      "path_params": [],
+      "source": "admin.py:get_vehicle_cleanup_job",
+      "tags": ""
+    },
+    {
+      "method": "PUT",
+      "path": "/api/v1/admin/scheduled-jobs/vehicle-cleanup",
+      "auth": "admin",
+      "path_params": [],
+      "source": "admin.py:save_vehicle_cleanup_job",
+      "tags": ""
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/admin/scheduled-jobs/vehicle-cleanup/start",
+      "auth": "admin",
+      "path_params": [],
+      "source": "admin.py:start_vehicle_cleanup_job",
+      "tags": ""
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/admin/scheduled-jobs/vehicle-cleanup/stop",
+      "auth": "admin",
+      "path_params": [],
+      "source": "admin.py:stop_vehicle_cleanup_job",
+      "tags": ""
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/admin/scheduled-jobs/vehicle-cleanup/run-now",
+      "auth": "admin",
+      "path_params": [],
+      "source": "admin.py:run_vehicle_cleanup_job",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/schedule-logs",
+      "auth": "admin",
+      "path_params": [],
+      "source": "admin.py:schedule_logs",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/flagged",
+      "auth": "admin",
+      "path_params": [],
+      "source": "admin.py:flagged_listings",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/vehicles/{vehicle_id}/images",
+      "auth": "admin",
+      "path_params": [
+        "vehicle_id"
+      ],
+      "source": "admin.py:admin_vehicle_images",
+      "tags": ""
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/admin/vehicles/{vehicle_id}/remove-photos",
+      "auth": "admin",
+      "path_params": [
+        "vehicle_id"
+      ],
+      "source": "admin.py:admin_remove_photos",
+      "tags": ""
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/admin/vehicles/{vehicle_id}/request-removal",
+      "auth": "admin",
+      "path_params": [
+        "vehicle_id"
+      ],
+      "source": "admin.py:admin_request_removal",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/payment-configs",
+      "auth": "admin",
+      "path_params": [],
+      "source": "admin.py:list_payment_configs",
+      "tags": ""
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/admin/payment-configs",
+      "auth": "admin",
+      "path_params": [],
+      "source": "admin.py:create_payment_config",
+      "tags": ""
+    },
+    {
+      "method": "PATCH",
+      "path": "/api/v1/admin/payment-configs/{config_id}",
+      "auth": "admin",
+      "path_params": [
+        "config_id"
+      ],
+      "source": "admin.py:update_payment_config",
+      "tags": ""
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/admin/payment-configs/{config_id}/activate",
+      "auth": "admin",
+      "path_params": [
+        "config_id"
+      ],
+      "source": "admin.py:activate_payment_config",
+      "tags": ""
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/v1/admin/payment-configs/{config_id}",
+      "auth": "admin",
+      "path_params": [
+        "config_id"
+      ],
+      "source": "admin.py:delete_payment_config",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/rc-configs",
+      "auth": "admin",
+      "path_params": [],
+      "source": "admin.py:list_rc_configs",
+      "tags": ""
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/admin/rc-configs",
+      "auth": "admin",
+      "path_params": [],
+      "source": "admin.py:create_rc_config",
+      "tags": ""
+    },
+    {
+      "method": "PATCH",
+      "path": "/api/v1/admin/rc-configs/{config_id}",
+      "auth": "admin",
+      "path_params": [
+        "config_id"
+      ],
+      "source": "admin.py:update_rc_config",
+      "tags": ""
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/admin/rc-configs/{config_id}/activate",
+      "auth": "admin",
+      "path_params": [
+        "config_id"
+      ],
+      "source": "admin.py:activate_rc_config",
+      "tags": ""
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/v1/admin/rc-configs/{config_id}",
+      "auth": "admin",
+      "path_params": [
+        "config_id"
+      ],
+      "source": "admin.py:delete_rc_config",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/assistant-tiles",
+      "auth": "admin",
+      "path_params": [],
+      "source": "admin.py:list_assistant_tiles",
+      "tags": ""
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/admin/assistant-tiles",
+      "auth": "admin",
+      "path_params": [],
+      "source": "admin.py:create_assistant_tile",
+      "tags": ""
+    },
+    {
+      "method": "PATCH",
+      "path": "/api/v1/admin/assistant-tiles/{tile_id}",
+      "auth": "admin",
+      "path_params": [
+        "tile_id"
+      ],
+      "source": "admin.py:update_assistant_tile",
+      "tags": ""
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/v1/admin/assistant-tiles/{tile_id}",
+      "auth": "admin",
+      "path_params": [
+        "tile_id"
+      ],
+      "source": "admin.py:delete_assistant_tile",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/rto-cities",
+      "auth": "admin",
+      "path_params": [],
+      "source": "admin.py:list_rto_cities",
+      "tags": ""
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/admin/rto-cities",
+      "auth": "admin",
+      "path_params": [],
+      "source": "admin.py:upsert_rto_city",
+      "tags": ""
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/v1/admin/rto-cities/{row_id}",
+      "auth": "admin",
+      "path_params": [
+        "row_id"
+      ],
+      "source": "admin.py:delete_rto_city",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/payments/orders",
+      "auth": "admin",
+      "path_params": [],
+      "source": "admin.py:list_payment_orders",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/reports/subscribers",
+      "auth": "admin",
+      "path_params": [],
+      "source": "admin.py:subscribers_report",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/reports/boost-bury",
+      "auth": "admin",
+      "path_params": [],
+      "source": "admin.py:boost_bury_report",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/reports/revenue",
+      "auth": "admin",
+      "path_params": [],
+      "source": "admin.py:revenue_report",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/reports/revenue-combined",
+      "auth": "admin",
+      "path_params": [],
+      "source": "admin.py:revenue_combined",
+      "tags": ""
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/admin/reports/export",
+      "auth": "admin",
+      "path_params": [],
+      "source": "admin.py:export_report_xlsx",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/ads",
+      "auth": "admin",
+      "path_params": [],
+      "source": "admin.py:admin_list_ads",
+      "tags": ""
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/admin/ads/reorder",
+      "auth": "admin",
+      "path_params": [],
+      "source": "admin.py:admin_reorder_ads",
+      "tags": ""
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/admin/ads",
+      "auth": "admin",
+      "path_params": [],
+      "source": "admin.py:admin_create_ad",
+      "tags": ""
+    },
+    {
+      "method": "PATCH",
+      "path": "/api/v1/admin/ads/{ad_id}",
+      "auth": "admin",
+      "path_params": [
+        "ad_id"
+      ],
+      "source": "admin.py:admin_update_ad",
+      "tags": ""
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/v1/admin/ads/{ad_id}",
+      "auth": "admin",
+      "path_params": [
+        "ad_id"
+      ],
+      "source": "admin.py:admin_delete_ad",
+      "tags": ""
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/admin/ads/{ad_id}/image",
+      "auth": "admin",
+      "path_params": [
+        "ad_id"
+      ],
+      "source": "admin.py:admin_upload_ad_image",
+      "tags": ""
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/v1/admin/ads/{ad_id}/image",
+      "auth": "admin",
+      "path_params": [
+        "ad_id"
+      ],
+      "source": "admin.py:admin_delete_ad_image",
+      "tags": ""
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/admin/ads/{ad_id}/html-file",
+      "auth": "admin",
+      "path_params": [
+        "ad_id"
+      ],
+      "source": "admin.py:admin_upload_ad_html",
+      "tags": ""
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/admin/ads/{ad_id}/payment-link",
+      "auth": "admin",
+      "path_params": [
+        "ad_id"
+      ],
+      "source": "admin.py:admin_ad_payment_link",
+      "tags": ""
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/admin/ads/{ad_id}/send-whatsapp",
+      "auth": "admin",
+      "path_params": [
+        "ad_id"
+      ],
+      "source": "admin.py:admin_ad_send_whatsapp",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/ads/{ad_id}/payment-status",
+      "auth": "admin",
+      "path_params": [
+        "ad_id"
+      ],
+      "source": "admin.py:admin_ad_payment_status",
+      "tags": ""
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/admin/broadcast",
+      "auth": "admin",
+      "path_params": [],
+      "source": "admin.py:broadcast",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/plan-matrix-rows",
+      "auth": "admin",
+      "path_params": [],
+      "source": "admin.py:plan_matrix_rows",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/plan-feature-catalogue",
+      "auth": "admin",
+      "path_params": [],
+      "source": "admin.py:plan_feature_catalogue",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/plans",
+      "auth": "admin",
+      "path_params": [],
+      "source": "admin.py:admin_list_plans",
+      "tags": ""
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/admin/plans",
+      "auth": "admin",
+      "path_params": [],
+      "source": "admin.py:admin_create_plan",
+      "tags": ""
+    },
+    {
+      "method": "PATCH",
+      "path": "/api/v1/admin/plans/{plan_id}",
+      "auth": "admin",
+      "path_params": [
+        "plan_id"
+      ],
+      "source": "admin.py:admin_update_plan",
+      "tags": ""
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/v1/admin/plans/{plan_id}",
+      "auth": "admin",
+      "path_params": [
+        "plan_id"
+      ],
+      "source": "admin.py:admin_delete_plan",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/plan-upgrade-requests",
+      "auth": "admin",
+      "path_params": [],
+      "source": "admin.py:list_plan_upgrade_requests",
+      "tags": ""
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/admin/plan-upgrade-requests/{req_id}/approve",
+      "auth": "admin",
+      "path_params": [
+        "req_id"
+      ],
+      "source": "admin.py:approve_plan_upgrade",
+      "tags": ""
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/admin/plan-upgrade-requests/{req_id}/reject",
+      "auth": "admin",
+      "path_params": [
+        "req_id"
+      ],
+      "source": "admin.py:reject_plan_upgrade",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/service-features",
+      "auth": "admin",
+      "path_params": [],
+      "source": "admin.py:admin_list_service_features",
+      "tags": ""
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/admin/service-features",
+      "auth": "admin",
+      "path_params": [],
+      "source": "admin.py:admin_create_service_feature",
+      "tags": ""
+    },
+    {
+      "method": "PATCH",
+      "path": "/api/v1/admin/service-features/{feature_id}",
+      "auth": "admin",
+      "path_params": [
+        "feature_id"
+      ],
+      "source": "admin.py:admin_update_service_feature",
+      "tags": ""
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/v1/admin/service-features/{feature_id}",
+      "auth": "admin",
+      "path_params": [
+        "feature_id"
+      ],
+      "source": "admin.py:admin_delete_service_feature",
+      "tags": ""
+    },
+    {
+      "method": "PATCH",
+      "path": "/api/v1/admin/users/{user_id}/service-features",
+      "auth": "admin",
+      "path_params": [
+        "user_id"
+      ],
+      "source": "admin.py:admin_assign_provider_features",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/service-add-requests",
+      "auth": "admin",
+      "path_params": [],
+      "source": "admin.py:list_service_add_requests",
+      "tags": ""
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/admin/service-add-requests/{req_id}/approve",
+      "auth": "admin",
+      "path_params": [
+        "req_id"
+      ],
+      "source": "admin.py:approve_service_add",
+      "tags": ""
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/admin/service-add-requests/{req_id}/reject",
+      "auth": "admin",
+      "path_params": [
+        "req_id"
+      ],
+      "source": "admin.py:reject_service_add",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/error-logs",
+      "auth": "admin",
+      "path_params": [],
+      "source": "admin.py:error_logs",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/error-logs/{error_id}",
+      "auth": "admin",
+      "path_params": [
+        "error_id"
+      ],
+      "source": "admin.py:error_log_detail",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/container-logs",
+      "auth": "admin",
+      "path_params": [],
+      "source": "admin.py:list_container_logs",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/container-logs/{name}",
+      "auth": "admin",
+      "path_params": [
+        "name"
+      ],
+      "source": "admin.py:get_container_logs",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/server-metrics",
+      "auth": "admin",
+      "path_params": [],
+      "source": "admin_metrics.py:server_metrics",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/cdn-usage",
+      "auth": "admin",
+      "path_params": [],
+      "source": "admin_metrics.py:cdn_usage",
+      "tags": ""
+    },
+    {
+      "method": "PUT",
+      "path": "/api/v1/admin/cdn-config",
+      "auth": "admin",
+      "path_params": [],
+      "source": "admin_metrics.py:set_cdn_config",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/db-usage",
+      "auth": "admin",
+      "path_params": [],
+      "source": "admin_metrics.py:db_usage",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/ads",
+      "auth": "public",
+      "path_params": [],
+      "source": "ads.py:list_active_ads",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/ads/{ad_id}/image",
+      "auth": "public",
+      "path_params": [
+        "ad_id"
+      ],
+      "source": "ads.py:serve_ad_image",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/agreement",
+      "auth": "authenticated",
+      "path_params": [],
+      "source": "agreements.py:my_agreement",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/agreement/my-pdf",
+      "auth": "authenticated",
+      "path_params": [],
+      "source": "agreements.py:my_agreement_pdf",
+      "tags": ""
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/agreement/accept",
+      "auth": "authenticated",
+      "path_params": [],
+      "source": "agreements.py:accept_agreement",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/agreement",
+      "auth": "public",
+      "path_params": [],
+      "source": "agreements.py:admin_get",
+      "tags": ""
+    },
+    {
+      "method": "PUT",
+      "path": "/api/v1/admin/agreement",
+      "auth": "public",
+      "path_params": [],
+      "source": "agreements.py:admin_publish",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/agreement/history",
+      "auth": "public",
+      "path_params": [],
+      "source": "agreements.py:admin_history",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/agreement/history/{tpl_id}",
+      "auth": "public",
+      "path_params": [
+        "tpl_id"
+      ],
+      "source": "agreements.py:admin_history_detail",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/agreement/acceptances",
+      "auth": "public",
+      "path_params": [],
+      "source": "agreements.py:admin_acceptances",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/agreement/acceptances/{acc_id}/pdf",
+      "auth": "public",
+      "path_params": [
+        "acc_id"
+      ],
+      "source": "agreements.py:admin_acceptance_pdf",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/agreement/party",
+      "auth": "public",
+      "path_params": [],
+      "source": "agreements.py:admin_get_party",
+      "tags": ""
+    },
+    {
+      "method": "PUT",
+      "path": "/api/v1/admin/agreement/party",
+      "auth": "public",
+      "path_params": [],
+      "source": "agreements.py:admin_set_party",
+      "tags": ""
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/ai/advisor",
+      "auth": "authenticated",
+      "path_params": [],
+      "source": "ai_advisor.py:advisor",
+      "tags": ""
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/ai/advisor/public",
+      "auth": "public",
+      "path_params": [],
+      "source": "ai_advisor.py:advisor_public",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/ai/tiles",
+      "auth": "authenticated",
+      "path_params": [],
+      "source": "ai_advisor.py:tiles",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/ai/tiles/public",
+      "auth": "public",
+      "path_params": [],
+      "source": "ai_advisor.py:tiles_public",
+      "tags": ""
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/ai/tiles/{tile_id}/tap",
+      "auth": "optional",
+      "path_params": [
+        "tile_id"
+      ],
+      "source": "ai_advisor.py:tap_tile",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/associates",
+      "auth": "admin",
+      "path_params": [],
+      "source": "associates.py:admin_list_associates",
+      "tags": ""
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/admin/associates",
+      "auth": "admin",
+      "path_params": [],
+      "source": "associates.py:admin_create_associate",
+      "tags": ""
+    },
+    {
+      "method": "PATCH",
+      "path": "/api/v1/admin/associates/{associate_id}",
+      "auth": "admin",
+      "path_params": [
+        "associate_id"
+      ],
+      "source": "associates.py:admin_update_associate",
+      "tags": ""
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/v1/admin/associates/{associate_id}",
+      "auth": "admin",
+      "path_params": [
+        "associate_id"
+      ],
+      "source": "associates.py:admin_delete_associate",
+      "tags": ""
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/admin/associates/reorder",
+      "auth": "admin",
+      "path_params": [],
+      "source": "associates.py:admin_reorder_associates",
+      "tags": ""
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/admin/associates/{associate_id}/logo",
+      "auth": "admin",
+      "path_params": [
+        "associate_id"
+      ],
+      "source": "associates.py:admin_upload_associate_logo",
+      "tags": ""
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/v1/admin/associates/{associate_id}/logo",
+      "auth": "admin",
+      "path_params": [
+        "associate_id"
+      ],
+      "source": "associates.py:admin_delete_associate_logo",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/associates",
+      "auth": "public",
+      "path_params": [],
+      "source": "associates.py:list_active_associates",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/associates/{associate_id}/logo",
+      "auth": "public",
+      "path_params": [
+        "associate_id"
+      ],
+      "source": "associates.py:serve_associate_logo",
+      "tags": ""
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/auth/request-phone-otp",
+      "auth": "public",
+      "path_params": [],
+      "source": "auth.py:request_phone_otp",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/auth/check-phone",
+      "auth": "public",
+      "path_params": [],
+      "source": "auth.py:check_phone",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/auth/captcha-config",
+      "auth": "public",
+      "path_params": [],
+      "source": "auth.py:captcha_config",
+      "tags": ""
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/auth/captcha-ticket",
+      "auth": "public",
+      "path_params": [],
+      "source": "auth.py:captcha_ticket",
+      "tags": ""
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/auth/request-otp",
+      "auth": "public",
+      "path_params": [],
+      "source": "auth.py:request_otp",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/auth/check-email",
+      "auth": "public",
+      "path_params": [],
+      "source": "auth.py:check_email",
+      "tags": ""
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/auth/register",
+      "auth": "public",
+      "path_params": [],
+      "source": "auth.py:register",
+      "tags": ""
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/auth/gst-check",
+      "auth": "authenticated",
+      "path_params": [],
+      "source": "auth.py:gst_check",
+      "tags": ""
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/auth/login",
+      "auth": "public",
+      "path_params": [],
+      "source": "auth.py:login",
+      "tags": ""
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/auth/refresh",
+      "auth": "public",
+      "path_params": [],
+      "source": "auth.py:refresh",
+      "tags": ""
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/auth/forgot-password",
+      "auth": "public",
+      "path_params": [],
+      "source": "auth.py:forgot_password",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/auth/reset-password/validate",
+      "auth": "public",
+      "path_params": [],
+      "source": "auth.py:validate_reset_token",
+      "tags": ""
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/auth/reset-password",
+      "auth": "public",
+      "path_params": [],
+      "source": "auth.py:reset_password",
+      "tags": ""
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/auth/logout",
+      "auth": "authenticated",
+      "path_params": [],
+      "source": "auth.py:logout",
+      "tags": ""
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/auth/google",
+      "auth": "public",
+      "path_params": [],
+      "source": "auth.py:google_auth",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/bookings",
+      "auth": "authenticated",
+      "path_params": [],
+      "source": "bookings.py:my_bookings",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/bookings/dealer",
+      "auth": "authenticated",
+      "path_params": [],
+      "source": "bookings.py:dealer_bookings",
+      "tags": ""
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/bookings",
+      "auth": "authenticated",
+      "path_params": [],
+      "source": "bookings.py:create_booking",
+      "tags": ""
+    },
+    {
+      "method": "PATCH",
+      "path": "/api/v1/bookings/{booking_id}/cancel",
+      "auth": "authenticated",
+      "path_params": [
+        "booking_id"
+      ],
+      "source": "bookings.py:cancel_booking",
+      "tags": ""
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/bookings/{booking_id}/confirm",
+      "auth": "authenticated",
+      "path_params": [
+        "booking_id"
+      ],
+      "source": "bookings.py:dealer_confirm",
+      "tags": ""
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/bookings/{booking_id}/reject",
+      "auth": "authenticated",
+      "path_params": [
+        "booking_id"
+      ],
+      "source": "bookings.py:dealer_reject",
+      "tags": ""
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/bookings/{booking_id}/propose",
+      "auth": "authenticated",
+      "path_params": [
+        "booking_id"
+      ],
+      "source": "bookings.py:dealer_propose",
+      "tags": ""
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/bookings/{booking_id}/counter-propose",
+      "auth": "authenticated",
+      "path_params": [
+        "booking_id"
+      ],
+      "source": "bookings.py:counter_propose",
+      "tags": ""
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/bookings/{booking_id}/accept-proposal",
+      "auth": "authenticated",
+      "path_params": [
+        "booking_id"
+      ],
+      "source": "bookings.py:accept_proposal",
+      "tags": ""
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/bookings/{booking_id}/reject-proposal",
+      "auth": "authenticated",
+      "path_params": [
+        "booking_id"
+      ],
+      "source": "bookings.py:reject_proposal",
+      "tags": ""
+    },
+    {
+      "method": "PUT",
+      "path": "/api/v1/dealer/branding/logo",
+      "auth": "brand_owner",
+      "path_params": [],
+      "source": "branding.py:upload_logo",
+      "tags": ""
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/v1/dealer/branding/logo",
+      "auth": "brand_owner",
+      "path_params": [],
+      "source": "branding.py:delete_logo",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/dealer/branding/logo/{dealer_id}",
+      "auth": "public",
+      "path_params": [
+        "dealer_id"
+      ],
+      "source": "branding.py:serve_logo",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/dealer/branding/me",
+      "auth": "authenticated",
+      "path_params": [],
+      "source": "branding.py:my_branding",
+      "tags": ""
+    },
+    {
+      "method": "PUT",
+      "path": "/api/v1/admin/branding/logo",
+      "auth": "admin",
+      "path_params": [],
+      "source": "branding.py:set_platform_logo",
+      "tags": ""
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/v1/admin/branding/logo",
+      "auth": "admin",
+      "path_params": [],
+      "source": "branding.py:clear_platform_logo",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/branding/platform",
+      "auth": "public",
+      "path_params": [],
+      "source": "branding.py:platform_branding",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/branding/platform/logo",
+      "auth": "public",
+      "path_params": [],
+      "source": "branding.py:serve_platform_logo",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/contact/categories",
+      "auth": "public",
+      "path_params": [],
+      "source": "contact.py:contact_categories",
+      "tags": ""
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/contact",
+      "auth": "optional",
+      "path_params": [],
+      "source": "contact.py:submit_contact",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/dealer/enquiry-config",
+      "auth": "staff",
+      "path_params": [],
+      "source": "dealer_enquiry_config.py:get_config",
+      "tags": ""
+    },
+    {
+      "method": "PUT",
+      "path": "/api/v1/dealer/enquiry-config",
+      "auth": "owner",
+      "path_params": [],
+      "source": "dealer_enquiry_config.py:save_config",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/dealers/me/dashboard",
+      "auth": "authenticated",
+      "path_params": [],
+      "source": "dealers.py:my_dashboard",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/dealers/me/inventory",
+      "auth": "authenticated",
+      "path_params": [],
+      "source": "dealers.py:my_inventory",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/dealers/team/inventory",
+      "auth": "authenticated",
+      "path_params": [],
+      "source": "dealers.py:team_inventory",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/dealers/me/sold",
+      "auth": "authenticated",
+      "path_params": [],
+      "source": "dealers.py:my_sold",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/dealers/me/matched",
+      "auth": "authenticated",
+      "path_params": [],
+      "source": "dealers.py:my_matched",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/dealers/me/leads",
+      "auth": "authenticated",
+      "path_params": [],
+      "source": "dealers.py:my_leads",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/dealers/me/performance",
+      "auth": "authenticated",
+      "path_params": [],
+      "source": "dealers.py:my_performance",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/dealers/me/demand",
+      "auth": "authenticated",
+      "path_params": [],
+      "source": "dealers.py:my_demand",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/dealers/me/activity",
+      "auth": "authenticated",
+      "path_params": [],
+      "source": "dealers.py:my_activity",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/dealers/me/voice-briefing",
+      "auth": "authenticated",
+      "path_params": [],
+      "source": "dealers.py:my_voice_briefing",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/document-types",
+      "auth": "public",
+      "path_params": [],
+      "source": "document_types.py:list_document_types",
+      "tags": ""
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/document-types",
+      "auth": "admin",
+      "path_params": [],
+      "source": "document_types.py:create_document_type",
+      "tags": ""
+    },
+    {
+      "method": "PATCH",
+      "path": "/api/v1/document-types/{type_id}",
+      "auth": "admin",
+      "path_params": [
+        "type_id"
+      ],
+      "source": "document_types.py:update_document_type",
+      "tags": ""
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/v1/document-types/{type_id}",
+      "auth": "admin",
+      "path_params": [
+        "type_id"
+      ],
+      "source": "document_types.py:delete_document_type",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/employees",
+      "auth": "owner",
+      "path_params": [],
+      "source": "employees.py:list_employees",
+      "tags": ""
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/employees",
+      "auth": "owner",
+      "path_params": [],
+      "source": "employees.py:create_employee",
+      "tags": ""
+    },
+    {
+      "method": "PATCH",
+      "path": "/api/v1/employees/{employee_id}/status",
+      "auth": "owner",
+      "path_params": [
+        "employee_id"
+      ],
+      "source": "employees.py:set_employee_status",
+      "tags": ""
+    },
+    {
+      "method": "PATCH",
+      "path": "/api/v1/employees/{employee_id}",
+      "auth": "owner",
+      "path_params": [
+        "employee_id"
+      ],
+      "source": "employees.py:update_employee",
+      "tags": ""
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/v1/employees/{employee_id}",
+      "auth": "owner",
+      "path_params": [
+        "employee_id"
+      ],
+      "source": "employees.py:delete_employee",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/enquiries",
+      "auth": "staff",
+      "path_params": [],
+      "source": "enquiries.py:my_enquiries",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/enquiries/my",
+      "auth": "authenticated",
+      "path_params": [],
+      "source": "enquiries.py:my_enquiry_history",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/enquiries/contacted-owners",
+      "auth": "public",
+      "path_params": [],
+      "source": "enquiries.py:contacted_owners",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/enquiries/dealership-vehicles",
+      "auth": "staff",
+      "path_params": [],
+      "source": "enquiries.py:dealership_vehicles",
+      "tags": ""
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/enquiries/contact",
+      "auth": "authenticated",
+      "path_params": [],
+      "source": "enquiries.py:contact_seller",
+      "tags": ""
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/enquiries",
+      "auth": "staff",
+      "path_params": [],
+      "source": "enquiries.py:create_enquiry",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/enquiries/hot-leads",
+      "auth": "staff",
+      "path_params": [],
+      "source": "enquiries.py:list_hot_leads",
+      "tags": ""
+    },
+    {
+      "method": "PATCH",
+      "path": "/api/v1/enquiries/{enquiry_id}",
+      "auth": "staff",
+      "path_params": [
+        "enquiry_id"
+      ],
+      "source": "enquiries.py:update_enquiry",
+      "tags": ""
+    },
+    {
+      "method": "PATCH",
+      "path": "/api/v1/enquiries/{enquiry_id}/assign",
+      "auth": "owner",
+      "path_params": [
+        "enquiry_id"
+      ],
+      "source": "enquiries.py:assign_enquiry",
+      "tags": ""
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/v1/enquiries/{enquiry_id}",
+      "auth": "staff",
+      "path_params": [
+        "enquiry_id"
+      ],
+      "source": "enquiries.py:delete_enquiry",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/enquiries/{enquiry_id}/followups",
+      "auth": "staff",
+      "path_params": [
+        "enquiry_id"
+      ],
+      "source": "enquiries.py:list_followups",
+      "tags": ""
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/enquiries/{enquiry_id}/followups",
+      "auth": "staff",
+      "path_params": [
+        "enquiry_id"
+      ],
+      "source": "enquiries.py:add_followup",
+      "tags": ""
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/enquiries/{enquiry_id}/qualify",
+      "auth": "staff",
+      "path_params": [
+        "enquiry_id"
+      ],
+      "source": "enquiries.py:qualify_enquiry",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/enquiries/{enquiry_id}/activity",
+      "auth": "staff",
+      "path_params": [
+        "enquiry_id"
+      ],
+      "source": "enquiries.py:enquiry_activity",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/enquiries/{enquiry_id}/quote",
+      "auth": "staff",
+      "path_params": [
+        "enquiry_id"
+      ],
+      "source": "enquiries.py:get_quote",
+      "tags": ""
+    },
+    {
+      "method": "PUT",
+      "path": "/api/v1/enquiries/{enquiry_id}/quote",
+      "auth": "staff",
+      "path_params": [
+        "enquiry_id"
+      ],
+      "source": "enquiries.py:upsert_quote",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/enquiries/{enquiry_id}/pdf",
+      "auth": "staff",
+      "path_params": [
+        "enquiry_id"
+      ],
+      "source": "enquiries.py:enquiry_pdf",
+      "tags": ""
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/enquiries/{enquiry_id}/email",
+      "auth": "staff",
+      "path_params": [
+        "enquiry_id"
+      ],
+      "source": "enquiries.py:email_enquiry",
+      "tags": ""
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/enquiries/{enquiry_id}/whatsapp",
+      "auth": "staff",
+      "path_params": [
+        "enquiry_id"
+      ],
+      "source": "enquiries.py:whatsapp_enquiry",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/favorites",
+      "auth": "authenticated",
+      "path_params": [],
+      "source": "favorites.py:my_favorites",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/favorites/ids",
+      "auth": "authenticated",
+      "path_params": [],
+      "source": "favorites.py:my_favorite_ids",
+      "tags": ""
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/favorites/{vehicle_id}",
+      "auth": "authenticated",
+      "path_params": [
+        "vehicle_id"
+      ],
+      "source": "favorites.py:add_favorite",
+      "tags": ""
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/v1/favorites/{vehicle_id}",
+      "auth": "authenticated",
+      "path_params": [
+        "vehicle_id"
+      ],
+      "source": "favorites.py:remove_favorite",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/favorites/dealer/me",
+      "auth": "authenticated",
+      "path_params": [],
+      "source": "favorites.py:favorited_my_vehicles",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/vehicles/{vehicle_id}/inspection",
+      "auth": "public",
+      "path_params": [
+        "vehicle_id"
+      ],
+      "source": "inspections.py:get_inspection",
+      "tags": ""
+    },
+    {
+      "method": "PUT",
+      "path": "/api/v1/vehicles/{vehicle_id}/inspection",
+      "auth": "authenticated",
+      "path_params": [
+        "vehicle_id"
+      ],
+      "source": "inspections.py:upsert_inspection",
+      "tags": ""
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/v1/vehicles/{vehicle_id}/inspection",
+      "auth": "authenticated",
+      "path_params": [
+        "vehicle_id"
+      ],
+      "source": "inspections.py:delete_inspection",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/insurance/policies",
+      "auth": "authenticated",
+      "path_params": [],
+      "source": "insurance.py:my_policies",
+      "tags": ""
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/insurance/policies",
+      "auth": "authenticated",
+      "path_params": [],
+      "source": "insurance.py:add_policy",
+      "tags": ""
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/insurance/policies/{policy_id}/renew",
+      "auth": "authenticated",
+      "path_params": [
+        "policy_id"
+      ],
+      "source": "insurance.py:renew_policy",
+      "tags": ""
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/v1/insurance/policies/{policy_id}",
+      "auth": "authenticated",
+      "path_params": [
+        "policy_id"
+      ],
+      "source": "insurance.py:delete_policy",
+      "tags": ""
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/insurance/quote-request",
+      "auth": "authenticated",
+      "path_params": [],
+      "source": "insurance.py:request_insurance_quotes",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/insurance/quote-requests",
+      "auth": "authenticated",
+      "path_params": [],
+      "source": "insurance.py:list_quote_requests",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/insurance/quote-requests/{req_id}/previous",
+      "auth": "authenticated",
+      "path_params": [
+        "req_id"
+      ],
+      "source": "insurance.py:download_previous_policy",
+      "tags": ""
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/insurance/quotes",
+      "auth": "public",
+      "path_params": [],
+      "source": "insurance.py:get_quotes",
+      "tags": ""
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/insurance/book",
+      "auth": "authenticated",
+      "path_params": [],
+      "source": "insurance.py:book_quote",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/invoices/mine",
+      "auth": "authenticated",
+      "path_params": [],
+      "source": "invoicing.py:my_invoices",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/invoices/{invoice_id}/pdf",
+      "auth": "authenticated",
+      "path_params": [
+        "invoice_id"
+      ],
+      "source": "invoicing.py:download_my_invoice",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/invoice-template",
+      "auth": "admin",
+      "path_params": [],
+      "source": "invoicing.py:get_invoice_template",
+      "tags": ""
+    },
+    {
+      "method": "PUT",
+      "path": "/api/v1/admin/invoice-template",
+      "auth": "admin",
+      "path_params": [],
+      "source": "invoicing.py:update_invoice_template",
+      "tags": ""
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/admin/invoice-template/preview",
+      "auth": "admin",
+      "path_params": [],
+      "source": "invoicing.py:preview_invoice_template",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/invoices",
+      "auth": "admin",
+      "path_params": [],
+      "source": "invoicing.py:list_invoices",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/invoices/{invoice_id}/pdf",
+      "auth": "admin",
+      "path_params": [
+        "invoice_id"
+      ],
+      "source": "invoicing.py:admin_download_invoice",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/legal/{doc_type}",
+      "auth": "public",
+      "path_params": [
+        "doc_type"
+      ],
+      "source": "legal.py:get_legal_document",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/legal",
+      "auth": "public",
+      "path_params": [],
+      "source": "legal.py:admin_get",
+      "tags": ""
+    },
+    {
+      "method": "PUT",
+      "path": "/api/v1/admin/legal",
+      "auth": "public",
+      "path_params": [],
+      "source": "legal.py:admin_publish",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/legal/history",
+      "auth": "public",
+      "path_params": [],
+      "source": "legal.py:admin_history",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/legal/history/{doc_id}",
+      "auth": "public",
+      "path_params": [
+        "doc_id"
+      ],
+      "source": "legal.py:admin_history_detail",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/loan-agents/me",
+      "auth": "public",
+      "path_params": [],
+      "source": "loan_agents.py:my_profile",
+      "tags": ""
+    },
+    {
+      "method": "PATCH",
+      "path": "/api/v1/loan-agents/me",
+      "auth": "public",
+      "path_params": [],
+      "source": "loan_agents.py:update_profile",
+      "tags": ""
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/loan-agents/documents",
+      "auth": "public",
+      "path_params": [],
+      "source": "loan_agents.py:upload_document",
+      "tags": ""
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/v1/loan-agents/documents/{doc_id}",
+      "auth": "public",
+      "path_params": [
+        "doc_id"
+      ],
+      "source": "loan_agents.py:delete_document",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/loan-agents/documents/{doc_id}",
+      "auth": "authenticated",
+      "path_params": [
+        "doc_id"
+      ],
+      "source": "loan_agents.py:download_document",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/loan-agents/applications",
+      "auth": "public",
+      "path_params": [],
+      "source": "loan_agents.py:list_applications",
+      "tags": ""
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/loan-agents/applications",
+      "auth": "public",
+      "path_params": [],
+      "source": "loan_agents.py:create_application",
+      "tags": ""
+    },
+    {
+      "method": "PATCH",
+      "path": "/api/v1/loan-agents/applications/{app_id}",
+      "auth": "public",
+      "path_params": [
+        "app_id"
+      ],
+      "source": "loan_agents.py:update_application",
+      "tags": ""
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/v1/loan-agents/applications/{app_id}",
+      "auth": "public",
+      "path_params": [
+        "app_id"
+      ],
+      "source": "loan_agents.py:delete_application",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/loan-agents/offers",
+      "auth": "public",
+      "path_params": [],
+      "source": "loan_agents.py:list_offers",
+      "tags": ""
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/loan-agents/offers",
+      "auth": "public",
+      "path_params": [],
+      "source": "loan_agents.py:create_offer",
+      "tags": ""
+    },
+    {
+      "method": "PATCH",
+      "path": "/api/v1/loan-agents/offers/{offer_id}",
+      "auth": "public",
+      "path_params": [
+        "offer_id"
+      ],
+      "source": "loan_agents.py:update_offer",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/loan-agents/offers/{offer_id}/file",
+      "auth": "authenticated",
+      "path_params": [
+        "offer_id"
+      ],
+      "source": "loan_agents.py:download_offer",
+      "tags": ""
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/v1/loan-agents/offers/{offer_id}",
+      "auth": "public",
+      "path_params": [
+        "offer_id"
+      ],
+      "source": "loan_agents.py:delete_offer",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/loan-agents",
+      "auth": "admin",
+      "path_params": [],
+      "source": "loan_agents.py:admin_list_loan_agents",
+      "tags": ""
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/admin/loan-agents/{user_id}/approve",
+      "auth": "admin",
+      "path_params": [
+        "user_id"
+      ],
+      "source": "loan_agents.py:admin_approve",
+      "tags": ""
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/admin/loan-agents/{user_id}/reject",
+      "auth": "admin",
+      "path_params": [
+        "user_id"
+      ],
+      "source": "loan_agents.py:admin_reject",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/locations/states",
+      "auth": "public",
+      "path_params": [],
+      "source": "locations.py:list_states",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/locations/cities",
+      "auth": "public",
+      "path_params": [],
+      "source": "locations.py:list_cities",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/message-templates",
+      "auth": "admin",
+      "path_params": [],
+      "source": "message_templates.py:list_templates",
+      "tags": ""
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/admin/message-templates",
+      "auth": "admin",
+      "path_params": [],
+      "source": "message_templates.py:create_template",
+      "tags": ""
+    },
+    {
+      "method": "PUT",
+      "path": "/api/v1/admin/message-templates/{template_id}",
+      "auth": "admin",
+      "path_params": [
+        "template_id"
+      ],
+      "source": "message_templates.py:update_template",
+      "tags": ""
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/v1/admin/message-templates/{template_id}",
+      "auth": "admin",
+      "path_params": [
+        "template_id"
+      ],
+      "source": "message_templates.py:delete_template",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/dealer/messaging/config",
+      "auth": "owner",
+      "path_params": [],
+      "source": "messaging.py:get_config",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/dealer/messaging/templates",
+      "auth": "owner",
+      "path_params": [],
+      "source": "messaging.py:list_dealer_scoped_templates",
+      "tags": ""
+    },
+    {
+      "method": "PUT",
+      "path": "/api/v1/dealer/messaging/config",
+      "auth": "owner",
+      "path_params": [],
+      "source": "messaging.py:save_config",
+      "tags": ""
+    },
+    {
+      "method": "PUT",
+      "path": "/api/v1/dealer/messaging/smtp",
+      "auth": "owner",
+      "path_params": [],
+      "source": "messaging.py:save_smtp",
+      "tags": ""
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/dealer/messaging/smtp/verify-from",
+      "auth": "owner",
+      "path_params": [],
+      "source": "messaging.py:verify_from_email",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/dealer/messaging/smtp/verify-from",
+      "auth": "owner",
+      "path_params": [],
+      "source": "messaging.py:verify_from_status",
+      "tags": ""
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/dealer/messaging/smtp/confirm-from",
+      "auth": "public",
+      "path_params": [],
+      "source": "messaging.py:confirm_from_email",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/dealer/messaging/smtp/reveal",
+      "auth": "owner",
+      "path_params": [],
+      "source": "messaging.py:reveal_smtp",
+      "tags": ""
+    },
+    {
+      "method": "PUT",
+      "path": "/api/v1/dealer/messaging/whatsapp",
+      "auth": "owner",
+      "path_params": [],
+      "source": "messaging.py:save_whatsapp",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/dealer/messaging/whatsapp/reveal",
+      "auth": "owner",
+      "path_params": [],
+      "source": "messaging.py:reveal_whatsapp",
+      "tags": ""
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/dealer/messaging/test-email",
+      "auth": "owner",
+      "path_params": [],
+      "source": "messaging.py:test_email",
+      "tags": ""
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/dealer/messaging/test-whatsapp",
+      "auth": "owner",
+      "path_params": [],
+      "source": "messaging.py:test_whatsapp",
+      "tags": ""
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/reports",
+      "auth": "authenticated",
+      "path_params": [],
+      "source": "moderation.py:create_report",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/blocks",
+      "auth": "authenticated",
+      "path_params": [],
+      "source": "moderation.py:my_blocks",
+      "tags": ""
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/blocks",
+      "auth": "authenticated",
+      "path_params": [],
+      "source": "moderation.py:block_user",
+      "tags": ""
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/v1/blocks/{user_id}",
+      "auth": "authenticated",
+      "path_params": [
+        "user_id"
+      ],
+      "source": "moderation.py:unblock_user",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/reports",
+      "auth": "admin",
+      "path_params": [],
+      "source": "moderation.py:list_reports",
+      "tags": ""
+    },
+    {
+      "method": "PATCH",
+      "path": "/api/v1/admin/reports/{report_id}",
+      "auth": "admin",
+      "path_params": [
+        "report_id"
+      ],
+      "source": "moderation.py:action_report",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/notifications",
+      "auth": "authenticated",
+      "path_params": [],
+      "source": "notifications.py:my_notifications",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/notifications/unread-count",
+      "auth": "authenticated",
+      "path_params": [],
+      "source": "notifications.py:unread_count",
+      "tags": ""
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/notifications/{notif_id}/read",
+      "auth": "authenticated",
+      "path_params": [
+        "notif_id"
+      ],
+      "source": "notifications.py:mark_read",
+      "tags": ""
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/notifications/read-all",
+      "auth": "authenticated",
+      "path_params": [],
+      "source": "notifications.py:mark_all_read",
+      "tags": ""
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/notifications/devices",
+      "auth": "authenticated",
+      "path_params": [],
+      "source": "notifications.py:register_device",
+      "tags": ""
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/v1/notifications/devices/{token}",
+      "auth": "authenticated",
+      "path_params": [
+        "token"
+      ],
+      "source": "notifications.py:unregister_device",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/notifications/preferences",
+      "auth": "authenticated",
+      "path_params": [],
+      "source": "notifications.py:get_prefs",
+      "tags": ""
+    },
+    {
+      "method": "PUT",
+      "path": "/api/v1/notifications/preferences",
+      "auth": "authenticated",
+      "path_params": [],
+      "source": "notifications.py:set_prefs",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/offers/vehicle/{vehicle_id}",
+      "auth": "public",
+      "path_params": [
+        "vehicle_id"
+      ],
+      "source": "offers.py:my_offer_for_vehicle",
+      "tags": ""
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/offers/vehicle/{vehicle_id}",
+      "auth": "public",
+      "path_params": [
+        "vehicle_id"
+      ],
+      "source": "offers.py:make_offer",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/offers/mine",
+      "auth": "authenticated",
+      "path_params": [],
+      "source": "offers.py:my_offers_grouped",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/offers/made",
+      "auth": "public",
+      "path_params": [],
+      "source": "offers.py:offers_i_made",
+      "tags": ""
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/offers/{offer_id}/accept",
+      "auth": "authenticated",
+      "path_params": [
+        "offer_id"
+      ],
+      "source": "offers.py:accept_offer",
+      "tags": ""
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/offers/{offer_id}/reject",
+      "auth": "authenticated",
+      "path_params": [
+        "offer_id"
+      ],
+      "source": "offers.py:reject_offer",
+      "tags": ""
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/phone-verification/start",
+      "auth": "authenticated",
+      "path_params": [],
+      "source": "phone_verify.py:start_verification",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/phone-verification/status",
+      "auth": "authenticated",
+      "path_params": [],
+      "source": "phone_verify.py:verification_status",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/phone-verification/confirm",
+      "auth": "public",
+      "path_params": [],
+      "source": "phone_verify.py:confirm",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/dealer/price-list",
+      "auth": "staff",
+      "path_params": [],
+      "source": "price_list.py:list_items",
+      "tags": ""
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/dealer/price-list/parse",
+      "auth": "owner",
+      "path_params": [],
+      "source": "price_list.py:parse_file",
+      "tags": ""
+    },
+    {
+      "method": "PUT",
+      "path": "/api/v1/dealer/price-list",
+      "auth": "owner",
+      "path_params": [],
+      "source": "price_list.py:save_items",
+      "tags": ""
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/v1/dealer/price-list/{item_id}",
+      "auth": "owner",
+      "path_params": [
+        "item_id"
+      ],
+      "source": "price_list.py:delete_item",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/pricing/estimate",
+      "auth": "staff",
+      "path_params": [],
+      "source": "pricing.py:get_estimate",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/pricing/ex-showroom",
+      "auth": "staff",
+      "path_params": [],
+      "source": "pricing.py:get_ex_showroom",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/service-bookings/features",
+      "auth": "authenticated",
+      "path_params": [],
+      "source": "service_bookings.py:service_features",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/service-bookings/providers",
+      "auth": "authenticated",
+      "path_params": [],
+      "source": "service_bookings.py:list_providers",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/service-bookings/service-add-request",
+      "auth": "provider",
+      "path_params": [],
+      "source": "service_bookings.py:my_service_add_requests",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/service-bookings/available-features",
+      "auth": "provider",
+      "path_params": [],
+      "source": "service_bookings.py:available_features",
+      "tags": ""
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/service-bookings/feature-add-request",
+      "auth": "provider",
+      "path_params": [],
+      "source": "service_bookings.py:request_add_feature",
+      "tags": ""
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/service-bookings/service-add-request",
+      "auth": "provider",
+      "path_params": [],
+      "source": "service_bookings.py:request_add_service",
+      "tags": ""
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/service-bookings/custom-service-request",
+      "auth": "provider",
+      "path_params": [],
+      "source": "service_bookings.py:request_custom_service",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/service-bookings/my-feature-prices",
+      "auth": "provider",
+      "path_params": [],
+      "source": "service_bookings.py:my_feature_prices",
+      "tags": ""
+    },
+    {
+      "method": "PUT",
+      "path": "/api/v1/service-bookings/my-feature-prices",
+      "auth": "provider",
+      "path_params": [],
+      "source": "service_bookings.py:save_feature_prices",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/service-bookings/mine",
+      "auth": "authenticated",
+      "path_params": [],
+      "source": "service_bookings.py:my_requests",
+      "tags": ""
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/service-bookings/{booking_id}/cancel",
+      "auth": "authenticated",
+      "path_params": [
+        "booking_id"
+      ],
+      "source": "service_bookings.py:cancel_my_booking",
+      "tags": ""
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/service-bookings/request",
+      "auth": "authenticated",
+      "path_params": [],
+      "source": "service_bookings.py:request_service",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/service-bookings/pdi",
+      "auth": "authenticated",
+      "path_params": [],
+      "source": "service_bookings.py:pdi_status",
+      "tags": ""
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/service-bookings/pdi",
+      "auth": "authenticated",
+      "path_params": [],
+      "source": "service_bookings.py:order_pdi",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/service-bookings",
+      "auth": "provider",
+      "path_params": [],
+      "source": "service_bookings.py:list_bookings",
+      "tags": ""
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/service-bookings",
+      "auth": "provider",
+      "path_params": [],
+      "source": "service_bookings.py:create_booking",
+      "tags": ""
+    },
+    {
+      "method": "PATCH",
+      "path": "/api/v1/service-bookings/{booking_id}",
+      "auth": "provider",
+      "path_params": [
+        "booking_id"
+      ],
+      "source": "service_bookings.py:update_booking",
+      "tags": ""
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/service-bookings/{booking_id}/quote",
+      "auth": "provider",
+      "path_params": [
+        "booking_id"
+      ],
+      "source": "service_bookings.py:send_quote",
+      "tags": ""
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/service-bookings/{booking_id}/accept-quote",
+      "auth": "authenticated",
+      "path_params": [
+        "booking_id"
+      ],
+      "source": "service_bookings.py:accept_quote",
+      "tags": ""
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/service-bookings/{booking_id}/decline-quote",
+      "auth": "authenticated",
+      "path_params": [
+        "booking_id"
+      ],
+      "source": "service_bookings.py:decline_quote",
+      "tags": ""
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/service-bookings/{booking_id}/propose",
+      "auth": "provider",
+      "path_params": [
+        "booking_id"
+      ],
+      "source": "service_bookings.py:propose_time",
+      "tags": ""
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/service-bookings/{booking_id}/accept-proposal",
+      "auth": "authenticated",
+      "path_params": [
+        "booking_id"
+      ],
+      "source": "service_bookings.py:accept_proposal",
+      "tags": ""
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/service-bookings/{booking_id}/reject-proposal",
+      "auth": "authenticated",
+      "path_params": [
+        "booking_id"
+      ],
+      "source": "service_bookings.py:reject_proposal",
+      "tags": ""
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/service-bookings/{booking_id}/completion-report",
+      "auth": "provider",
+      "path_params": [
+        "booking_id"
+      ],
+      "source": "service_bookings.py:upload_report",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/service-bookings/{booking_id}/completion-report",
+      "auth": "authenticated",
+      "path_params": [
+        "booking_id"
+      ],
+      "source": "service_bookings.py:serve_report",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/service-bookings/{booking_id}/invoices",
+      "auth": "authenticated",
+      "path_params": [
+        "booking_id"
+      ],
+      "source": "service_bookings.py:list_invoices",
+      "tags": ""
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/service-bookings/{booking_id}/invoices",
+      "auth": "provider",
+      "path_params": [
+        "booking_id"
+      ],
+      "source": "service_bookings.py:upload_invoices",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/service-bookings/{booking_id}/invoices/{invoice_id}",
+      "auth": "authenticated",
+      "path_params": [
+        "booking_id",
+        "invoice_id"
+      ],
+      "source": "service_bookings.py:serve_invoice",
+      "tags": ""
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/v1/service-bookings/{booking_id}/invoices/{invoice_id}",
+      "auth": "provider",
+      "path_params": [
+        "booking_id",
+        "invoice_id"
+      ],
+      "source": "service_bookings.py:delete_invoice",
+      "tags": ""
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/service-bookings/{booking_id}/complete",
+      "auth": "provider",
+      "path_params": [
+        "booking_id"
+      ],
+      "source": "service_bookings.py:complete_booking",
+      "tags": ""
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/service-bookings/{booking_id}/email-invoice",
+      "auth": "provider",
+      "path_params": [
+        "booking_id"
+      ],
+      "source": "service_bookings.py:email_invoice",
+      "tags": ""
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/v1/service-bookings/{booking_id}",
+      "auth": "provider",
+      "path_params": [
+        "booking_id"
+      ],
+      "source": "service_bookings.py:delete_booking",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/service-centres",
+      "auth": "optional",
+      "path_params": [],
+      "source": "service_centres.py:list_centres",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/service-types",
+      "auth": "public",
+      "path_params": [],
+      "source": "service_types.py:list_active_service_types",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/showroom/{slug}",
+      "auth": "public",
+      "path_params": [
+        "slug"
+      ],
+      "source": "showroom.py:public_showroom",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/dealer/showroom-preview",
+      "auth": "public",
+      "path_params": [],
+      "source": "showroom.py:my_showroom_preview",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/dealer/showroom-link",
+      "auth": "public",
+      "path_params": [],
+      "source": "showroom.py:my_showroom_link",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/subscription/plans",
+      "auth": "public",
+      "path_params": [],
+      "source": "subscription.py:list_plans",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/subscription/pricing-matrix",
+      "auth": "public",
+      "path_params": [],
+      "source": "subscription.py:pricing_matrix",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/subscription/me",
+      "auth": "authenticated",
+      "path_params": [],
+      "source": "subscription.py:my_subscription",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/subscription/upgrade-request",
+      "auth": "authenticated",
+      "path_params": [],
+      "source": "subscription.py:my_upgrade_request",
+      "tags": ""
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/subscription/upgrade-request",
+      "auth": "authenticated",
+      "path_params": [],
+      "source": "subscription.py:request_upgrade",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/subscription/upgrade-quote",
+      "auth": "authenticated",
+      "path_params": [],
+      "source": "subscription.py:upgrade_quote",
+      "tags": ""
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/subscription/pay/upi",
+      "auth": "authenticated",
+      "path_params": [],
+      "source": "subscription.py:pay_upi",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/subscription/boost/products",
+      "auth": "public",
+      "path_params": [],
+      "source": "subscription.py:boost_products_list",
+      "tags": ""
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/subscription/boost/pay",
+      "auth": "authenticated",
+      "path_params": [],
+      "source": "subscription.py:boost_pay",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/subscription/pay/status",
+      "auth": "authenticated",
+      "path_params": [],
+      "source": "subscription.py:pay_status",
+      "tags": ""
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/subscription/pay/webhook",
+      "auth": "public",
+      "path_params": [],
+      "source": "subscription.py:cashfree_webhook",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/users/me",
+      "auth": "authenticated",
+      "path_params": [],
+      "source": "users.py:read_me",
+      "tags": ""
+    },
+    {
+      "method": "PATCH",
+      "path": "/api/v1/users/me",
+      "auth": "authenticated",
+      "path_params": [],
+      "source": "users.py:update_me",
+      "tags": ""
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/users/me/request-unsubscribe",
+      "auth": "authenticated",
+      "path_params": [],
+      "source": "users.py:request_unsubscribe",
+      "tags": ""
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/users/confirm-unsubscribe",
+      "auth": "public",
+      "path_params": [],
+      "source": "users.py:confirm_unsubscribe",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/users/me/profile-change",
+      "auth": "authenticated",
+      "path_params": [],
+      "source": "users.py:my_profile_change",
+      "tags": ""
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/users/me/profile-change",
+      "auth": "authenticated",
+      "path_params": [],
+      "source": "users.py:submit_profile_change",
+      "tags": ""
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/users/me/location",
+      "auth": "authenticated",
+      "path_params": [],
+      "source": "users.py:set_my_location",
+      "tags": ""
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/users/me/gst",
+      "auth": "authenticated",
+      "path_params": [],
+      "source": "users.py:set_my_gst",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/users/me/verification",
+      "auth": "authenticated",
+      "path_params": [],
+      "source": "users.py:my_verification",
+      "tags": ""
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/users/me/verify/send",
+      "auth": "authenticated",
+      "path_params": [],
+      "source": "users.py:send_verification",
+      "tags": ""
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/users/me/verify/confirm",
+      "auth": "authenticated",
+      "path_params": [],
+      "source": "users.py:confirm_verification",
+      "tags": ""
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/vehicles/{vehicle_id}/images",
+      "auth": "authenticated",
+      "path_params": [],
+      "source": "vehicle_media.py:upload_image",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/vehicles/{vehicle_id}/images",
+      "auth": "optional",
+      "path_params": [],
+      "source": "vehicle_media.py:list_images",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/vehicles/{vehicle_id}/images/{image_id}",
+      "auth": "optional",
+      "path_params": [
+        "image_id"
+      ],
+      "source": "vehicle_media.py:serve_image",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/vehicles/{vehicle_id}/images/{image_id}/thumb",
+      "auth": "optional",
+      "path_params": [
+        "image_id"
+      ],
+      "source": "vehicle_media.py:serve_thumbnail",
+      "tags": ""
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/v1/vehicles/{vehicle_id}/images/{image_id}",
+      "auth": "authenticated",
+      "path_params": [
+        "image_id"
+      ],
+      "source": "vehicle_media.py:delete_image",
+      "tags": ""
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/vehicles/{vehicle_id}/documents",
+      "auth": "authenticated",
+      "path_params": [],
+      "source": "vehicle_media.py:upload_document",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/vehicles/{vehicle_id}/documents",
+      "auth": "authenticated",
+      "path_params": [],
+      "source": "vehicle_media.py:list_documents",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/vehicles/{vehicle_id}/documents/{doc_id}",
+      "auth": "authenticated",
+      "path_params": [
+        "doc_id"
+      ],
+      "source": "vehicle_media.py:serve_document",
+      "tags": ""
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/v1/vehicles/{vehicle_id}/documents/{doc_id}",
+      "auth": "authenticated",
+      "path_params": [
+        "doc_id"
+      ],
+      "source": "vehicle_media.py:delete_document",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/vehicles",
+      "auth": "optional",
+      "path_params": [],
+      "source": "vehicles.py:list_vehicles",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/vehicles/marquee",
+      "auth": "public",
+      "path_params": [],
+      "source": "vehicles.py:vehicle_marquee",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/vehicles/featured",
+      "auth": "optional",
+      "path_params": [],
+      "source": "vehicles.py:vehicle_featured",
+      "tags": ""
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/vehicles/{vehicle_id}/boost",
+      "auth": "authenticated",
+      "path_params": [
+        "vehicle_id"
+      ],
+      "source": "vehicles.py:set_boost",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/vehicles/rc-lookup",
+      "auth": "authenticated",
+      "path_params": [],
+      "source": "vehicles.py:rc_lookup",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/vehicles/reg-check",
+      "auth": "authenticated",
+      "path_params": [],
+      "source": "vehicles.py:reg_check",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/vehicles/boost-bury-status",
+      "auth": "public",
+      "path_params": [],
+      "source": "vehicles.py:boost_bury_status",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/vehicles/brands",
+      "auth": "public",
+      "path_params": [],
+      "source": "vehicles.py:list_brands",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/vehicles/cities",
+      "auth": "public",
+      "path_params": [],
+      "source": "vehicles.py:list_cities",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/vehicles/dealers",
+      "auth": "public",
+      "path_params": [],
+      "source": "vehicles.py:list_listing_dealers",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/vehicles/mine",
+      "auth": "authenticated",
+      "path_params": [],
+      "source": "vehicles.py:my_vehicles",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/vehicles/my-interest",
+      "auth": "authenticated",
+      "path_params": [],
+      "source": "vehicles.py:my_interest_vehicles",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/vehicles/me/listing-payments",
+      "auth": "authenticated",
+      "path_params": [],
+      "source": "vehicles.py:my_listing_payments",
+      "tags": ""
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/vehicles/{vehicle_id}/listing-payment/send-link",
+      "auth": "authenticated",
+      "path_params": [
+        "vehicle_id"
+      ],
+      "source": "vehicles.py:send_listing_payment_link",
+      "tags": ""
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/vehicles/{vehicle_id}/listing-payment/cancel",
+      "auth": "authenticated",
+      "path_params": [
+        "vehicle_id"
+      ],
+      "source": "vehicles.py:cancel_listing_payment",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/vehicles/{vehicle_id}",
+      "auth": "optional",
+      "path_params": [
+        "vehicle_id"
+      ],
+      "source": "vehicles.py:get_vehicle",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/vehicles/{vehicle_id}/related",
+      "auth": "optional",
+      "path_params": [
+        "vehicle_id"
+      ],
+      "source": "vehicles.py:related_vehicles",
+      "tags": ""
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/vehicles/{vehicle_id}/share-email",
+      "auth": "public",
+      "path_params": [
+        "vehicle_id"
+      ],
+      "source": "vehicles.py:share_vehicle_email",
+      "tags": ""
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/vehicles",
+      "auth": "public",
+      "path_params": [],
+      "source": "vehicles.py:create_vehicle",
+      "tags": ""
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/vehicles/bulk",
+      "auth": "public",
+      "path_params": [],
+      "source": "vehicles.py:bulk_import_vehicles",
+      "tags": ""
+    },
+    {
+      "method": "PATCH",
+      "path": "/api/v1/vehicles/{vehicle_id}",
+      "auth": "authenticated",
+      "path_params": [
+        "vehicle_id"
+      ],
+      "source": "vehicles.py:update_vehicle",
+      "tags": ""
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/vehicles/{vehicle_id}/view",
+      "auth": "optional",
+      "path_params": [
+        "vehicle_id"
+      ],
+      "source": "vehicles.py:record_view",
+      "tags": ""
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/vehicles/{vehicle_id}/event",
+      "auth": "optional",
+      "path_params": [
+        "vehicle_id"
+      ],
+      "source": "vehicles.py:record_engagement",
+      "tags": ""
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/v1/vehicles/{vehicle_id}",
+      "auth": "authenticated",
+      "path_params": [
+        "vehicle_id"
+      ],
+      "source": "vehicles.py:delete_vehicle",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/whatsapp/webhook",
+      "auth": "public",
+      "path_params": [],
+      "source": "whatsapp_webhook.py:verify_webhook",
+      "tags": ""
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/whatsapp/webhook",
+      "auth": "public",
+      "path_params": [],
+      "source": "whatsapp_webhook.py:receive_webhook",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/wishlist",
+      "auth": "authenticated",
+      "path_params": [],
+      "source": "wishlist.py:my_wishlist",
+      "tags": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/wishlist/suggestions",
+      "auth": "authenticated",
+      "path_params": [],
+      "source": "wishlist.py:wishlist_suggestions",
+      "tags": ""
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/wishlist",
+      "auth": "authenticated",
+      "path_params": [],
+      "source": "wishlist.py:add_wishlist",
+      "tags": ""
+    },
+    {
+      "method": "PATCH",
+      "path": "/api/v1/wishlist/{item_id}",
+      "auth": "authenticated",
+      "path_params": [
+        "item_id"
+      ],
+      "source": "wishlist.py:update_wishlist",
+      "tags": ""
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/v1/wishlist/{item_id}",
+      "auth": "authenticated",
+      "path_params": [
+        "item_id"
+      ],
+      "source": "wishlist.py:delete_wishlist",
+      "tags": ""
+    }
+  ]
+}

@@ -1,0 +1,80 @@
+# =============================================================================
+# VahanSpace — DYNAMIC ROUND (staging) run configuration TEMPLATE.
+#
+# This is an EXAMPLE. Copy to config/vahanspace.staging.local.yaml (gitignored),
+# fill the CAPITALISED placeholders, then:
+#     python -m vaptframework.cli preflight --config config/vahanspace.staging.local.yaml
+#     python -m vaptframework.cli run       --config config/vahanspace.staging.local.yaml \
+#                                            --plan testplan/VahanSpace_VAPT_Automation_Test_Plan.xlsx
+#
+# The 224 generated API checks (136 unauth + 80 BFLA + 8 BOLA templates) are loaded from
+# testplan/vahanspace_api_tests.json; ${TARGET} is replaced with `targets[0]` at load time.
+# NEVER point this at production. Preflight is NO-GO until authorization is signed.
+# =============================================================================
+
+meta:
+  application: "VahanSpace"
+  engagement: "VahanSpace VAPT 2026 — Round 2 (Dynamic)"
+  tester: "YOUR NAME"
+  scope_note: "Authorized staging only. Web + REST API (FastAPI /api/v1) + mobile backend."
+  testing_mode: "Dynamic (DAST + API) against authorized staging + static"
+
+scope:
+  name: "vahanspace-staging"
+  environment: "staging"
+  allowed_hosts:
+    - "STAGING-HOST"            # e.g. staging-api.vahanspace.example  (NO production)
+  allowed_ports: [443]
+  excluded_paths:
+    - "/api/v1/admin/wipe"      # never touch destructive admin ops
+    - "/internal/"
+  allow_production: false
+  source_roots:
+    - "C:/MyProjects/StagingVahanSpace-src/backend"
+    - "C:/MyProjects/StagingVahanSpace-src/frontend/src"
+    - "C:/MyProjects/StagingVahanSpace-src/mobile-app"
+
+authorization:
+  authorized_by: ""             # <-- REQUIRED to enable active testing (real name/title)
+  engagement: "VahanSpace VAPT 2026 — Round 2"
+  contact: "CLIENT 24x7 CONTACT"
+  valid_from: "YYYY-MM-DD"
+  valid_until: "YYYY-MM-DD"
+  allow_active_testing: false   # <-- set true only after RoE is signed
+  allow_destructive: false      # keep false; mutating/DoS tests stay off
+  notes: "Link to signed docs/RULES_OF_ENGAGEMENT_VahanSpace.md"
+
+targets:
+  - "https://STAGING-HOST"      # must match an allowed_hosts entry
+
+rate_limit:
+  requests_per_second: 2
+  burst: 4
+kill_switch_file: "STOP_TESTING"
+
+# Throwaway STAGING test accounts, one per role. Get a bearer token per account
+# (login on staging, copy the JWT) and paste below. userB/dealerB are the "attacker"
+# identities for BOLA (they must NOT reach userA/dealerA objects).
+credentials:
+  user:            { headers: { Authorization: "Bearer STAGING_TOKEN_USER_A" } }
+  userB:           { headers: { Authorization: "Bearer STAGING_TOKEN_USER_B" } }
+  dealer:          { headers: { Authorization: "Bearer STAGING_TOKEN_DEALER_A" } }
+  dealerB:         { headers: { Authorization: "Bearer STAGING_TOKEN_DEALER_B" } }
+  dealer_admin:    { headers: { Authorization: "Bearer STAGING_TOKEN_DEALER_ADMIN" } }
+  dealer_employee: { headers: { Authorization: "Bearer STAGING_TOKEN_DEALER_EMPLOYEE" } }
+  service_provider: { headers: { Authorization: "Bearer STAGING_TOKEN_SERVICE_PROVIDER" } }
+  loan_agent:      { headers: { Authorization: "Bearer STAGING_TOKEN_LOAN_AGENT" } }
+  admin:           { headers: { Authorization: "Bearer STAGING_TOKEN_ADMIN" } }
+
+options:
+  # 224 generated checks (unauth + BFLA use only tokens; BOLA templates need victim ids).
+  api_tests_file: "../testplan/vahanspace_api_tests.json"
+  # Add filled BOLA cases (victim object ids) here as you seed staging data:
+  api_tests:
+    # - { name: "BOLA userB reads userA vehicle", check: bola, method: GET,
+    #     url: "${TARGET}/api/v1/vehicles/VICTIM_VEHICLE_ID", attacker_identity: userB, test_id: VAPT-021 }
+
+suites: [secrets, sast, sca, config-audit, dast, api]
+
+evidence_dir: "evidence"
+report_dir: "reports"
