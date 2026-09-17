@@ -1,0 +1,56 @@
+# =============================================================================
+# VahanSpace VAPT run configuration.
+#
+# CURRENT STATE: static-analysis only. Active testing (DAST/API) is DISABLED
+# because no authorized staging target has been provided yet. To enable it:
+#   1. Fill in `targets` with the authorized STAGING base URL(s).
+#   2. Add those hosts to scope.allowed_hosts.
+#   3. Set authorization.authorized_by and allow_active_testing: true.
+#   4. Provide staging test credentials under `credentials`.
+# Never point this at production.
+# =============================================================================
+
+meta:
+  application: "VahanSpace"
+  engagement: "VahanSpace VAPT 2026"
+  tester: "VahanSpace Security"
+  scope_note: "Web app (React), REST API (FastAPI/Python), and mobile app (Android/iOS)."
+  testing_mode: "Static (SAST/SCA/Secrets/Config) — DAST pending authorized staging target"
+
+scope:
+  name: "vahanspace"
+  environment: "staging"
+  allowed_hosts: []            # add authorized staging hosts here before any active scan
+  allowed_ports: [443]
+  excluded_hosts: []
+  excluded_paths: ["/internal/"]
+  allow_production: false
+  source_roots:
+    - "C:/MyProjects/VahanSpace-src"   # clone the repo here (backend/, frontend/, mobile-app/)
+
+authorization:
+  authorized_by: ""            # <-- sign here to enable active testing
+  engagement: "VahanSpace VAPT 2026"
+  contact: ""
+  valid_from: ""
+  valid_until: ""
+  allow_active_testing: false
+  allow_destructive: false
+  notes: "Static analysis needs no active authorization. DAST requires this to be signed."
+
+targets: []                    # e.g. ["https://staging.vahanspace.example"]
+
+rate_limit:
+  requests_per_second: 2
+  burst: 4
+kill_switch_file: "STOP_TESTING"
+
+credentials: {}
+options:
+  api_tests: []
+
+# For the current report we run only the passive/static suites.
+suites: [secrets, sast, sca, config-audit, dast, api]
+
+evidence_dir: "evidence"
+report_dir: "reports"

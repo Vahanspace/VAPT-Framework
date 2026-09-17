@@ -1,0 +1,29 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+
+# Framework runtime output (may contain sensitive data)
+reports/
+evidence/
+STOP_TESTING
+
+# Local run configs that may contain credentials/targets
+config/*.local.yaml
+config/*.secret.yaml
+
+# OS / editor
+.DS_Store
+.idea/
+.vscode/
+*.log
+
+# Never commit target source or credential material
+VahanSpace-src/
+*.pem
+*.key
+.env

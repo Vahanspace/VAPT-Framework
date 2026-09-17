@@ -1,0 +1,67 @@
+# =============================================================================
+# VAPT Framework — run configuration (fully documented example)
+# Copy this file, fill it in per engagement, and pass it with --config.
+# NOTHING active runs unless BOTH the scope allowlist AND the authorization allow it.
+# =============================================================================
+
+meta:
+  application: "Application Name"
+  engagement: "VAPT-YYYY-Qn"
+  tester: "Your Name"
+  scope_note: "One-line description of what is in scope."
+  testing_mode: "Static + guarded DAST"
+
+# ---- Scope: default-deny allowlist. Only these targets may be touched. --------
+scope:
+  name: "app-staging"
+  environment: "staging"          # staging | test | dev | local | production
+  allowed_hosts:                  # exact host, or a single leading "*." wildcard
+    - "staging.example.com"
+    - "*.staging.example.com"
+  allowed_ports: [443, 8443]      # empty list = any port
+  excluded_hosts:                 # always wins over allowed_hosts
+    - "admin.staging.example.com"
+  excluded_paths:                 # URL path prefixes never touched
+    - "/internal/"
+    - "/admin/dangerous-action"
+  allow_production: false         # refuse production-like hosts unless explicitly true
+  source_roots:                   # local paths for static analysis (SAST/SCA/secrets)
+    - "C:/path/to/source"
+
+# ---- Authorization: signed, time-bound rules of engagement. ------------------
+authorization:
+  authorized_by: ""               # MUST be a real name; empty/placeholder => active tests blocked
+  engagement: "VAPT-YYYY-Qn"
+  contact: "who-to-call@example.com"
+  valid_from: "2026-09-01"
+  valid_until: "2026-12-31"
+  allow_active_testing: false     # gate for ALL network probes (DAST/API)
+  allow_destructive: false        # gate for data-mutating / DoS tests (also needs active=true)
+  notes: "Link to signed authorization document / ticket."
+
+# ---- Active target base URLs (must be in scope). Empty => active suites skip. -
+targets: []
+#  - "https://staging.example.com"
+
+# ---- Rate limiting (be gentle). ---------------------------------------------
+rate_limit:
+  requests_per_second: 2
+  burst: 4
+kill_switch_file: "STOP_TESTING"   # create this file to halt all active testing immediately
+
+# ---- Credentials for authenticated/BOLA tests (staging test accounts only). --
+credentials: {}
+#  userA: { headers: { Authorization: "Bearer <staging-token-A>" } }
+#  userB: { headers: { Authorization: "Bearer <staging-token-B>" } }
+
+# ---- Data-driven API tests (used by the 'api' suite). ------------------------
+options:
+  api_tests: []
+#    - { name: "Get vehicle", test_id: "VAPT-021", url: "https://staging.example.com/api/vehicles/123",
+#        method: GET, protected: true, attacker_identity: userB }
+
+# ---- Which scanner suites to enable. ----------------------------------------
+suites: [secrets, sast, sca, config-audit, dast, api]
+
+evidence_dir: "evidence"
+report_dir: "reports"
